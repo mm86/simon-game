@@ -19,7 +19,7 @@ var x = [240,240,230,230];
 var y = [240,225,225,240];
 var start = [0,1.5*Math.PI,1*Math.PI,0.5*Math.PI];
 var end = [0.5*Math.PI,0,1.5*Math.PI,1*Math.PI];
-var color = ["#fff","red","green","yellow"];
+var color = ["blue","red","green","yellow"];
 //global scope:
 var lastChange = 0;
 //Change a color to lighter here
@@ -41,9 +41,13 @@ function drawSimon() {
   }
   
 //Later in the code
-if (Date.now() - lastChange > 100) {
-  alert("changed");
-    //Change colors back here
+if (Date.now() - lastChange > 1000) {
+  //Change colors back here
+  color[0]="#fff";
+}
+
+if (Date.now() - lastChange > 1100) {
+  //Change colors back here
   color[0]="blue";
 }
   requestAnimationFrame(drawSimon);
