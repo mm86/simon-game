@@ -8,13 +8,9 @@ var start = [0, 1.5 * Math.PI, 1 * Math.PI, 0.5 * Math.PI];
 var end = [0.5 * Math.PI, 0, 1.5 * Math.PI, 1 * Math.PI];
 var color = ["blue", "red", "green", "yellow"];
 
-var lastChange = 0;
-lastChange = Date.now();
-//add event listeners
-/*
-document.addEventListener("keydown", keyDownHandler, false);
-document.addEventListener("keyup", keyUpHandler, false);
-*/
+var xw = canvas.width / 2;
+var yh = canvas.height / 2;
+
 
 //outer larger circle
 function drawLargerCircle() {
@@ -48,8 +44,6 @@ function drawComponents() {
 
     }
 }
-
-//this function will be executed every second thanks to requestAnimationFrame
 
 
 function flashComponents() {
@@ -121,7 +115,23 @@ function changeColor(val) {
 
 }
 
+$('#myCanvas').click(function(e) {
 
+    e.preventDefault();
+    var nx, ny;
+    nx = -(xw - e.pageX);
+    ny = yh - e.pageY;
+    if (nx > 0 && ny > 0) {
+        console.log(3);
+    } else if (nx < 0 && ny > 0) {
+        console.log(0);
+    } else if (nx > 0 && ny < 0) {
+        console.log(2);
+    } else if (nx < 0 && ny < 0) {
+        console.log(1);
+    }
+
+});
 
 function draw() {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
